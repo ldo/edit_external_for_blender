@@ -61,7 +61,15 @@ def add_to_menu(self, context) :
 def register() :
     bpy.utils.register_class(EditExternal)
     the_keymap = bpy.context.window_manager.keyconfigs["Blender"].keymaps["Text"]
-    the_keymap.keymap_items.new(EditExternal.bl_idname, type = "E", value = "PRESS", alt = True)
+    args = [EditExternal.bl_idname]
+    kwargs = {"type" : "E", "value" : "PRESS", "alt" : True, "head" : True}
+    try :
+        the_keymap.keymap_items.new(*args, **kwargs)
+    except TypeError :
+        # assume pre-SVN-r50276, no “head” arg
+        del kwargs["head"]
+        the_keymap.keymap_items.new(*args, **kwargs)
+    #end try
     bpy.types.TEXT_MT_text.append(add_to_menu)
 #end register
 

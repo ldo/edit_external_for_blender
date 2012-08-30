@@ -21,6 +21,7 @@ again, and you should see your changes appear in the Text Editor
 window.
 
 Note: I tried to define the keyboard shortcut Alt-E to invoke this
-command in Blender, but it doesn’t seem to work as yet.
+command in Blender; this requires a version of Blender from SVN-r50276
+or later to work properly.
 
 Lawrence D'Oliveiro <ldo@geek-central.gen.nz>
