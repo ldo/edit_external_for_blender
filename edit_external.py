@@ -3,7 +3,8 @@
 # using Emacs, invoked via the emacsclient command. Note that Blender
 # execution is blocked while waiting for the edit to complete.
 #
-# Written by Lawrence D'Oliveiro <ldo@geek-central.gen.nz>.
+# Copyright 2012 by Lawrence D'Oliveiro <ldo@geek-central.gen.nz>.
+# Licensed under CC-BY-SA <http://creativecommons.org/licenses/by-sa/4.0/>.
 #-
 
 import os
