@@ -3,11 +3,12 @@
 # using Emacs, invoked via the emacsclient command. Note that Blender
 # execution is blocked while waiting for the edit to complete.
 #
-# Copyright 2012 by Lawrence D'Oliveiro <ldo@geek-central.gen.nz>.
+# Copyright 2012, 2019 by Lawrence D'Oliveiro <ldo@geek-central.gen.nz>.
 # Licensed under CC-BY-SA <http://creativecommons.org/licenses/by-sa/4.0/>.
 #-
 
 import os
+import subprocess
 import tempfile
 import bpy
 
@@ -15,7 +16,7 @@ bl_info = \
     {
         "name" : "Edit in Emacs",
         "author" : "Lawrence D'Oliveiro <ldo@geek-central.gen.nz>",
-        "version" : (1, 0, 2),
+        "version" : (1, 0, 3),
         "blender" : (2, 80, 0),
         "location" : "Text Editor > Text > Edit in Emacs",
         "description" : "Edit the current text externally in Emacs (ALT+E)",
@@ -36,8 +37,8 @@ class EditExternal(bpy.types.Operator) :
             the_file.truncate()
             the_file.write(the_text.encode())
             the_file.flush()
-            status = os.system("emacsclient " + tempfile_name)
-            if status == 0 :
+            completed = subprocess.run(args = ("emacsclient", tempfile_name))
+            if completed.returncode == 0 :
                 the_file.seek(0, os.SEEK_SET)
                 context.edit_text.clear()
                 context.edit_text.write(the_file.read().decode())
