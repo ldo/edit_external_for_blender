@@ -15,8 +15,8 @@ bl_info = \
     {
         "name" : "Edit in Emacs",
         "author" : "Lawrence D'Oliveiro <ldo@geek-central.gen.nz>",
-        "version" : {1, 0},
         "blender" : (2, 6, 3),
+        "version" : (1, 0, 1),
         "location" : "Text Editor > Text > Edit in Emacs",
         "description" : "Edit the current text externally in Emacs (ALT+E)",
         "category" : "Text Editor",
