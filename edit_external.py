@@ -16,8 +16,8 @@ bl_info = \
     {
         "name" : "Edit in Emacs",
         "author" : "Lawrence D'Oliveiro <ldo@geek-central.gen.nz>",
-        "version" : (1, 0, 3),
-        "blender" : (2, 80, 0),
+        "version" : (1, 0, 4),
+        "blender" : (4, 0, 0),
         "location" : "Text Editor > Text > Edit in Emacs",
         "description" : "Edit the current text externally in Emacs (ALT+E)",
         "category" : "Text Editor",
@@ -62,7 +62,7 @@ def add_to_menu(self, context) :
 
 def register() :
     bpy.utils.register_class(EditExternal)
-    the_keymap = bpy.context.window_manager.keyconfigs["blender"].keymaps["Text"]
+    the_keymap = bpy.context.window_manager.keyconfigs["Blender"].keymaps["Text"]
     args = [EditExternal.bl_idname]
     kwargs = {"type" : "E", "value" : "PRESS", "alt" : True, "head" : True}
     the_keymap.keymap_items.new(*args, **kwargs)
@@ -71,7 +71,7 @@ def register() :
 
 def unregister() :
     bpy.types.TEXT_MT_text.remove(add_to_menu)
-    the_keymap = bpy.context.window_manager.keyconfigs["blender"].keymaps["Text"]
+    the_keymap = bpy.context.window_manager.keyconfigs["Blender"].keymaps["Text"]
     for the_key in the_keymap.keymap_items :
         if the_key.idname == EditExternal.bl_idname :
             the_keymap.keymap_items.remove(the_key)
