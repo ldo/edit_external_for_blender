@@ -1,24 +1,4 @@
-This addon for Blender 2.8 or later lets you edit a text block in an
-external editor, namely Emacs. It uses the “emacsclient” command to
-communicate with a currently-running Emacs instance (use the Emacs
-command sequence “alt-X server-start” to start your Emacs instance
-listening for these connections).
-
-Install this addon into your Blender user area in the usual way. Open
-a Blender document containing one or more text blocks. Enable the
-addon for that document (you will find it listed in the “Text Editor”
-section of your available addons). Go to a Text Editor window. Select
-one of your text blocks to edit. In the “Text” menu, you will see a
-new option appear: “Edit External”. Select this, and Blender will
-appear to freeze. Switch to your Emacs instance, and you should see
-the script appear in its window.
-
-When you have finished making changes to the script in Emacs and
-saving them in the usual way (“ctrl-X ctrl-S”), press “ctrl-X #” which
-will close the file in Emacs and notify the emacsclient command that
-editing is complete. At this point, Blender will become responsive
-again, and you should see your changes appear in the Text Editor
-window.
-
-Lawrence D'Oliveiro <ldo@geek-central.gen.nz>
-2019 July 28
+This project is no longer being maintained on GitHub.
+Look for it at one of
+* gitlab: https://gitlab.com/ldo/edit_external_for_blender
+* bitbucket: https://bitbucket.org/ldo17/edit_external_for_blender
